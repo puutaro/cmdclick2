@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -e
+
+
+kill_all_process(){
+	ps aux \
+	| awk '(\
+			$0 ~ "cmdclick" \
+				&& $0 !~ "grep" \
+		){ 
+			printf $2"\t"
+		}' \
+	| kill $(cat)
+}
+
+
+first_option="${1:-}"
+case "${first_option}" in
+	"-k") 
+		kill_all_process
+		exit 0
+		;;
+	"") 
+		bash $(dirname $0)/cmdclick_dir/exec_cmdclick.sh
+		exit 0
+		;;
+esac
+bash $(dirname $0)/cmdclick_dir/exec_cmdclick.sh "${first_option}"
