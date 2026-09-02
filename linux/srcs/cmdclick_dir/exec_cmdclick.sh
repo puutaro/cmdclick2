@@ -3,6 +3,10 @@
 set -ue
 
 LANG=C
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 readonly ITEM_THREAD="ITEM_THREAD_CM2GUI"
 readonly APP_MODE_FILE_PATH="${1:-}"
 readonly CMDCLICK_WINDOW_TITLE="Command Click"

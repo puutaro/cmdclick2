@@ -14,7 +14,7 @@ cmd_click_startup_source_app(){
 	if [ -z "${check_cmdclick}" ];then
 		osascript -e "
 		tell application \"${app_name}\"
-	  		tell application \"System Events\" 
+	  		tell application \"System Events\"
 	  			keystroke \"v\" using command down
 	  			keystroke return
 	  		end tell
@@ -44,11 +44,13 @@ maximize_app(){
 	y_posi=0
 	x_posi2=${width}
 	y_posi2=${height}
-	osascript \
-	-e "tell application \"${app_name}\" 
-	activate
-	ignoring application responses
-	set bounds of front window to {${x_posi}, ${y_posi}, ${x_posi2}, ${y_posi2}}
-	end ignoring
-	end tell"
+	wmctrl -a "${app_name}"
+  resize "${app_name}" \
+    ${x_posi} ${y_posi} ${x_posi2} ${y_posi2}
+#	osascript \
+#	-e "tell application \"${app_name}\"
+#	ignoring application responses
+#	set bounds of front window to {${x_posi}, ${y_posi}, ${x_posi2}, ${y_posi2}}
+#	end ignoring
+#	end tell"
 }

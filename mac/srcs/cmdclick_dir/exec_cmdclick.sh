@@ -233,12 +233,15 @@ case  "${IMPORT_CMDCLICK_VAL}" in
 		  local y_posi=$(((${height} * 1) / 5))
 		  box_size=($((${width} - ${x_posi})) $((${height} - ${y_posi})) 100)
 		  open -a ${CMD_CLICK_SOURCE_APP}
-		  osascript \
-		  -e "tell application \"${CMD_CLICK_SOURCE_APP}\" 
-		  ignoring application responses
-		  set bounds of front window to {${x_posi}, ${y_posi}, $width, $height}
-		  end ignoring
-		  end tell"
+		  resize "${CMD_CLICK_SOURCE_APP}" \
+		    ${x_posi} ${y_posi} $width $height
+#
+#		  osascript \
+#		  -e "tell application \"${CMD_CLICK_SOURCE_APP}\"
+#		  ignoring application responses
+#		  set bounds of front window to {${x_posi}, ${y_posi}, $width, $height}
+#		  end ignoring
+#		  end tell"
 		}
 		export -f right_box
 
@@ -271,12 +274,14 @@ case  "${IMPORT_CMDCLICK_VAL}" in
 			if [ "${box_size[0]}" == "${before_box_size[0]}" ] && [ "${box_size[1]}" == "${before_box_size[1]}" ] && [ "${box_size[2]}" == "${before_box_size[2]}" ];then
 				:;
 			else
-				osascript \
-				-e "tell application \"${CMD_CLICK_SOURCE_APP}\" 
-				ignoring application responses
-				set bounds of front window to {${x_posi}, ${y_posi}, $x_posi2, $height}
-				end ignoring
-				end tell"
+        resize "${CMD_CLICK_SOURCE_APP}" \
+          ${x_posi} ${y_posi} $x_posi2 $height
+#				osascript \
+#				-e "tell application \"${CMD_CLICK_SOURCE_APP}\"
+#				ignoring application responses
+#				set bounds of front window to {${x_posi}, ${y_posi}, $x_posi2, $height}
+#				end ignoring
+#				end tell"
 			fi
 		}
 
@@ -306,13 +311,15 @@ case  "${IMPORT_CMDCLICK_VAL}" in
 		  local y_posi=0
 		  local x_posi2=${width}
 		  local y_posi2=${height}
-		  open -a "${app_name}"
-		  osascript \
-		  -e "tell application \"${1}\" 
-		  ignoring application responses
-		  set bounds of front window to {${x_posi}, ${y_posi}, ${x_posi2}, ${y_posi2}}
-		  end ignoring
-		  end tell"
+		  open -a "${1}"
+      resize "${1}" \
+         ${x_posi} ${y_posi} ${x_posi2} ${y_posi2}
+#		  osascript \
+#		  -e "tell application \"${1}\"
+#		  ignoring application responses
+#		  set bounds of front window to {${x_posi}, ${y_posi}, ${x_posi2}, ${y_posi2}}
+#		  end ignoring
+#		  end tell"tell
 		}
 
 		left_maximize_box(){
@@ -343,13 +350,16 @@ case  "${IMPORT_CMDCLICK_VAL}" in
 		  local y_posi=0
 		  local x_posi2=$((${width} / 2))
 		  local y_posi2=${height}
-		  open -a "${app_name}"
-		  osascript \
-		  -e "tell application \"${1}\" 
-		  ignoring application responses
-		  set bounds of front window to {${x_posi}, ${y_posi}, ${x_posi2}, ${y_posi2}} \
-		  end ignoring
-		  end tell"
+		  open -a "${1}"
+      resize "${1}" \
+         ${x_posi} ${y_posi} ${x_posi2} ${y_posi2}
+
+#		  osascript \
+#		  -e "tell application \"${1}\"
+#		  ignoring application responses
+#		  set bounds of front window to {${x_posi}, ${y_posi}, ${x_posi2}, ${y_posi2}} \
+#		  end ignoring
+#		  end tell"
 		}
 
 		right_maximize_box(){
@@ -381,12 +391,14 @@ case  "${IMPORT_CMDCLICK_VAL}" in
 		  local y_posi=0
 		  local x_posi2=${width}
 		  local y_posi2=${height}
-		  open -a "${app_name}"
-		  osascript -e "tell application \"${1}\" 
-		  ignoring application responses
-		  set bounds of front window to {${x_posi}, ${y_posi}, ${x_posi2}, ${y_posi2}}
-		  end ignoring
-		  end tell"
+		  open -a "${1}"
+      resize "${1}" \
+         ${x_posi} ${y_posi} ${x_posi2} ${y_posi2}
+#		  osascript -e "tell application \"${1}\"
+#		  ignoring application responses
+#		  set bounds of front window to {${x_posi}, ${y_posi}, ${x_posi2}, ${y_posi2}}
+#		  end ignoring
+#		  end tell"
 		}
 
 

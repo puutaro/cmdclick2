@@ -46,6 +46,28 @@ exec_dec(){
 	echo "${GREP_INC_NUM}=${inc_num_after}" > "${CMDCLICK_CONF_INC_CMD_PATH}"
 }
 
+echo_longpath_by_summraizing(){
+	local path="${1}"
+	local display_path_hierarchy_limit_num=4
+	echo "${path}" \
+		| awk \
+		-v HOME="${HOME}" \
+		-v display_path_hierarchy_limit_num=${display_path_hierarchy_limit_num} \
+		'{
+			target_path = $0
+			gsub(HOME, "~", target_path)
+			target_path_list_length = split(\
+				target_path, \
+				target_path_list, \
+				"/" \
+			)
+			if(target_path_list_length <= display_path_hierarchy_limit_num){
+				print target_path
+				exit
+			}
+			print target_path_list[1]"/../"target_path_list[target_path_list_length-1]"/"target_path_list[target_path_list_length]
+		}'
+}
 
 input_cmd_index(){
 	#boxsize global pre culc
@@ -63,9 +85,9 @@ input_cmd_index(){
 	#current dir info
 	local sed_home_path=$(echo "${HOME}" | sed 's/\//\\\//g')
 	if [ ! ${NORMAL_SIGNAL_CODE} -eq ${CHDIR_CODE} ];then
-		local display_sec_ini_path=$(echo "${SECONDS_INI_FILE_DIR_PATH}" | sed 's/'${sed_home_path}'/~/')
-	else 
-		local display_sec_ini_path=$(echo "${CMDCLICK_CONF_DIR_PATH}" | sed 's/'${sed_home_path}'/~/')
+		local display_sec_ini_path=$(echo_longpath_by_summraizing "${SECONDS_INI_FILE_DIR_PATH}")
+	else
+		local display_sec_ini_path=$(echo_longpath_by_summraizing "${CMDCLICK_CONF_DIR_PATH}")
 	fi
 	# lecho "sed_home_path: ${sed_home_path}"
 	# lecho "display_sec_ini_path: ${display_sec_ini_path}"

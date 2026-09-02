@@ -265,9 +265,9 @@ case  "${IMPORT_CMDCLICK_VAL}" in
 		  local y_posi=0
 		  local x_posi2=${width}
 		  local y_posi2=${height}
-		  open -a "${app_name}"
+		  open -a "${1}"
 		  osascript \
-		  -e "tell application \"${1}\" 
+		  -e "tell application \"${1}\"
 		  ignoring application responses
 		  set bounds of front window to {${x_posi}, ${y_posi}, ${x_posi2}, ${y_posi2}}
 		  end ignoring
