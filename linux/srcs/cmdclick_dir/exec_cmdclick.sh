@@ -1,12 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -ue
 
 LANG=C
-export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+readonly CMDCLICK_OS="$(uname -s)"
+if [ "${CMDCLICK_OS}" = "Darwin" ];then
+  export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
 readonly ITEM_THREAD="ITEM_THREAD_CM2GUI"
 readonly APP_MODE_FILE_PATH="${1:-}"
 readonly CMDCLICK_WINDOW_TITLE="Command Click"
@@ -20,7 +24,8 @@ readonly EDIT_LIB_DIR_PATH="${LIB_DIR_PATH}/edit_lib"
 readonly INPUT_GUI_LIB_DIR_PATH="${COMMON_LIB_DIR_PATH}/input_gui_lib"
 readonly INIT_LIB_DIR_PATH="${COMMON_LIB_DIR_PATH}/init_lib"
 readonly CMDCLICK_WINDOW_ICON_PATH="${SOURCE_DIR_PATH}/images/cmdclick_image.png"
-readonly USER_HOME_DIR_PATH="/home/${USER}"
+#readonly USER_HOME_DIR_PATH="/home/${USER}"
+readonly USER_HOME_DIR_PATH="${HOME}"
 readonly CMDCLICK_ROOT_DIR_PATH="${USER_HOME_DIR_PATH}/cmdclick"
 export CMDCLICK_CONF_DIR_PATH="${CMDCLICK_ROOT_DIR_PATH}/conf"
 export CMDCLICK_APP_DIR_PATH="${CMDCLICK_CONF_DIR_PATH}/app"
@@ -49,7 +54,7 @@ readonly CMDCLICK_INI_LIST_PADDING="listPadding"
 readonly PASTE_AFTER_ENTER_DEFAULT_VALUE="OFF"
 readonly PASTE_TARGET_TERMINAL_DEFAULT_VALUE="terminal"
 readonly CMDCLICK_EDITOR_CMD_DEFAULT_VALUE="subl"
-readonly CMDCLICK_CREATE_FILE_SHIBAN_DEFAULT_VALUE="#!/bin/bash"
+readonly CMDCLICK_CREATE_FILE_SHIBAN_DEFAULT_VALUE="#!/usr/bin/env bash"
 readonly CMDCLICK_RUN_SHELL_DEFAULT_VALUE="bash"
 readonly CMDCLICK_INI_FONT_SIZE_DEFAULT_VALUE=10
 readonly CMDCLICK_INI_PADDING_DEFAULT_VALUE=10
@@ -221,6 +226,46 @@ ACTIVE_CHECK_VARIABLE=0
 readonly CMDCLICK_MACHINE_ID="cmcdilck$(get_machine_id)"
 
 execute_cmd_by_xdotool(){
+  if [ "${CMDCLICK_OS}" = "Darwin" ];then
+    wmctrl -a "${PASTE_TARGET_TERMINAL_NAME}"
+    local clip_con=$(pbpaste)
+    echo -n "${1}" | pbcopy
+    retrun_cmd=""
+    return_times=1
+    if [ "${PASTE_AFTER_ENTER_BOOL}" = "ON" ];then
+      retrun_cmd="keystroke return"
+      return_times=2
+    fi
+    retry_count=10
+    times=0
+    while :
+    do
+      local cur_clip_con="$(pbpaste)"
+      if echo "${cur_clip_con}" | grep -qE "bash " ;then
+        break
+      fi
+      times=$((${times} + 1))
+      if [ ${times} -ge ${retry_count} ];then
+        break
+      fi
+      sleep 0.1
+    done
+    fastpaste \
+      "${PASTE_TARGET_TERMINAL_NAME}" \
+      "${return_times}"
+#		osascript -e "
+#      tell application \"${PASTE_TARGET_TERMINAL_NAME}\"
+#	  		tell application \"System Events\"
+#	  			keystroke \"v\" using command down
+#	  			keystroke return
+#	  			${retrun_cmd}
+#	  		end tell
+#	  	end tell
+#	  "
+    echo -n "${clip_con}" | pbcopy
+#    EXECUTE_COMMAND=""
+    return
+  fi
 	local ccerminal_acctive_state=$(\
 		wmctrl -lx \
 		| grep -i "${2}" \
@@ -273,6 +318,7 @@ init(){
 }
 
 init
+
 
 open_editor(){
     ${CMDCLICK_EDITOR_CMD_STR} "${1}"

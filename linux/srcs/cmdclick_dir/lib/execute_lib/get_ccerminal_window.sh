@@ -1,7 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 get_ccerminal_window(){
+  if [ "${CMDCLICK_OS}" = "Darwin" ];then
+    ccerminal_window_list="${PASTE_TARGET_TERMINAL_NAME}"
+    return
+  fi
 	ccerminal_window_list=$(\
 		get_by_window_title \
 			"${PASTE_TARGET_TERMINAL_NAME}" \

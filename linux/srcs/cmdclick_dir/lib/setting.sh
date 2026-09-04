@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 SETTING_LIB_DIR_PATH="${LIB_DIR_PATH}/setting_lib"

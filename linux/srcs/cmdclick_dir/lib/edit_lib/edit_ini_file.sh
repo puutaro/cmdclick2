@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 EDIT_INI_FILE_LIB_DIR_PATH="${EDIT_LIB_DIR_PATH}/edit_ini_file_lib"
@@ -54,7 +54,6 @@ edit_ini_gui(){
       && [ ${SIGNAL_CODE} -eq ${EXIT_CODE} -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
       && exit 0 \
       || e=$?
-
     [ ${SIGNAL_CODE} -eq ${EXIT_CODE} \
       -o ${SIGNAL_CODE} -ge ${FORCE_EXIT_CODE} ] \
     &&  EXEC_SET_VARIABLE_TYPE="${NO_EDIT_EXECUTE}" \
@@ -110,12 +109,12 @@ edit_ini_gui(){
           ;;
     esac
     #yad用入力値反映イニファイル内容を作成
-    case "${CONFIRM}" in 
+    case "${CONFIRM}" in
       "1") : ;;
       "0")  
           local ini_file_name_str=$(\
             echo -e "${INI_CONTENTS}" \
-              | grep "${INI_CMD_FILE_NAME}="\
+              | grep -E "^${INI_CMD_FILE_NAME}="\
               | cut -d= -f2- \
               || e=$? \
           )

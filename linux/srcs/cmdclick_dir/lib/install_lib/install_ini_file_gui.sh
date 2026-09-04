@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 install_ini_file_gui_lib_dir_path="${INSTALL_LIB_DIR_PATH}/install_ini_file_gui_lib"

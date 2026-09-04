@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 ADD_CHDIR_CMD_INI_FILE_LIB_DIR_PATH="${COMMON_LIB_DIR_PATH}/add_chdir_cmd_ini_file_lib"

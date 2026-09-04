@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 check_validate_err_dialog(){
 	local LANG="ja_JP.UTF-8"

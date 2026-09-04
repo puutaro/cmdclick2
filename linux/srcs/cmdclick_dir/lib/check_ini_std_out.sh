@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CHECK_INI_FILE_LIB_PATH="${LIB_DIR_PATH}/check_ini_file_lib"
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_by_remove_pre_or_suffix_single_quote(){

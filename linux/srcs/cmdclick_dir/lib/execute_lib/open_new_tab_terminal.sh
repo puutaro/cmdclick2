@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 open_new_tab_terminal(){
 	case "${EXEC_OPEN_WHERE}" in 

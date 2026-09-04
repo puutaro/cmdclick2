@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 judge_and_exec_move_or_cp(){
 	local LANG="ja_JP.UTF-8"

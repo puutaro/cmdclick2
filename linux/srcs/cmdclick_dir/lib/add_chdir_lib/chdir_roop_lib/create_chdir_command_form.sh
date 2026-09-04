@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 input_path_check_lib_path="${COMMON_LIB_DIR_PATH}/input_path_check_lib"

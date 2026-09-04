@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 LANG=C
 LINUX_EXECUTE_LIB_DIR_PATH="${LIB_DIR_PATH}/execute_lib"
@@ -49,7 +49,10 @@ command_execute(){
 	#ターミナル起動コマンド格納
 	if [ "${EXEC_TERMINAL_ON}" = "ON" ]; then
 		terminal_exec_command="LANG=\"ja_JP.UTF-8\"; . \"${HOME}/profile\"; x-terminal-emulator -T \"${CC_TERMINAL_NAME}\" &"
-	else 
+    if [ "${CMDCLICK_OS}" = "Darwin" ];then
+      terminal_exec_command="open -a \"${PASTE_TARGET_TERMINAL_NAME}\""
+    fi
+	else
 		terminal_exec_command=""
 	fi
 
@@ -60,7 +63,9 @@ command_execute(){
 			#実行可能なCCerminalを取得、なければ、ターミナルで代用
 			ccerminal_window_list=""
 			get_ccerminal_window
-			wmctrl -i -a ${ccerminal_window_list}
+      if [ ! "${CMDCLICK_OS}" = "Darwin" ];then
+        wmctrl -i -a ${ccerminal_window_list}
+			fi
 
 			#新しいタブで開く場合	
 			open_new_tab_terminal
@@ -69,15 +74,15 @@ command_execute(){
 			#以後、コマンド系----------------------------------------------------
 			execute_ctrl_cmd \
 				"${EXEC_BEFORE_CTRL_CMD}"
-			execute_before_command \
-				"${EXEC_BEFORE_COMMAND}" \
-				"${ccerminal_window_list}"
+#			execute_before_command \
+#				"${EXEC_BEFORE_COMMAND}" \
+#				"${ccerminal_window_list}"
 			execute_cmd_by_xdotool \
 				"${EXECUTE_COMMAND}" \
 				"${ccerminal_window_list}"
-			execute_after_command \
-				"${EXEC_AFTER_COMMAND}" \
-				"${ccerminal_window_list}"
+#			execute_after_command \
+#				"${EXEC_AFTER_COMMAND}" \
+#				"${ccerminal_window_list}"
 			execute_ctrl_cmd \
 				"${EXEC_AFTER_CTRL_CMD}"
 			;;

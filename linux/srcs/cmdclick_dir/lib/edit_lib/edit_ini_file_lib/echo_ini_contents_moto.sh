@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo_ini_contents_moto(){
 	local roop_num="${1}"

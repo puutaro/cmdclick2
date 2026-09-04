@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 readonly launcher_cmd_index_by_lxterminal_lib_dir_path="$(dirname ${0})"
 readonly input_gui_lib_dir_path="$(dirname ${launcher_cmd_index_by_lxterminal_lib_dir_path})"

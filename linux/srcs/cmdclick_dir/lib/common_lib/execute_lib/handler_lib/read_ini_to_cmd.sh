@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 read_ini_to_cmd_lib_dir_path="${HANDLER_LIB_DIR_PATH}/read_ini_to_cmd_lib"
 . "${read_ini_to_cmd_lib_dir_path}/set_setting_section_parameter.sh"

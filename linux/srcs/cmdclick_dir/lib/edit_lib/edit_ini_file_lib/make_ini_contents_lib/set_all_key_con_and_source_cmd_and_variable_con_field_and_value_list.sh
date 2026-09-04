@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 set_all_key_con_and_source_cmd_and_variable_con_field_and_value_list(){

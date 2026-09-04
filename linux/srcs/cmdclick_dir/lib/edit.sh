@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 LANG="ja_JP.UTF-8"
 LOOP=0
@@ -9,6 +9,7 @@ case "${SIGNAL_CODE}" in
 	*) 
 		EDIT_WINDOW_LOCATION="--center --width=${CENTER_SCALE_DISPLAY_WIDTH} --height=${CENTER_SCALE_DISPLAY_HEIGHT}"
 		EDIT_WINDOW_WIDTH="${CENTER_SCALE_DISPLAY_WIDTH}"
+
 		edit_ini_gui \
 			"${EXECUTE_FILE_NAME}" \
 			"" \

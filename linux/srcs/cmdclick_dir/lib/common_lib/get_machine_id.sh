@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 get_machine_id() {
     if [ "$(uname)" = "Darwin" ]; then

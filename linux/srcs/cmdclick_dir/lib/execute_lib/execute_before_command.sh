@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 execute_before_command(){
 	local exec_before_command="${1}"

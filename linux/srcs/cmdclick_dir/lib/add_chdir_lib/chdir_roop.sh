@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ADD_CHDIR_CMD_LIB_DIR_PATH="${CHDIR_LIB_DIR_PATH}/chdir_roop_lib"
 

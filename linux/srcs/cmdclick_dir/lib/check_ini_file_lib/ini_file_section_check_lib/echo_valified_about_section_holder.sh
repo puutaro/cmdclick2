@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo_valified_about_section_holder(){
 	local ini_contents="${1}"

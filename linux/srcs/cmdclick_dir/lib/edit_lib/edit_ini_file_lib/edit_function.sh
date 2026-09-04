@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 display_edit_contensts_lib_path="${EDIT_INI_FILE_LIB_DIR_PATH}/display_edit_contensts_lib"

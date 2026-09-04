@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 MOVE_LIB_DIR_PATH="${LIB_DIR_PATH}/move_lib"
 . "${MOVE_LIB_DIR_PATH}/move_ini_file_gui.sh"

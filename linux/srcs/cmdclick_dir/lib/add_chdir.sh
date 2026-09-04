@@ -1,4 +1,4 @@
-#!bin/bash
+#!/usr/bin/env bash
 
 
 CHDIR_LIB_DIR_PATH="${LIB_DIR_PATH}/add_chdir_lib"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 add_cmd_confirm(){
     local LANG="ja_JP.UTF-8"

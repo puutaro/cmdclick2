@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_x_posi_y_posi_scale_width_scale_height(){

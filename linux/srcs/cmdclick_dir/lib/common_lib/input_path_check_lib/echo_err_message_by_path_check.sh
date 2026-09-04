@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 input_path_check_lib_path="${COMMON_LIB_DIR_PATH}/input_path_check_lib"
 echo_err_message_by_path_check_lib_dir_path="${input_path_check_lib_path}/echo_err_message_by_path_check_lib"

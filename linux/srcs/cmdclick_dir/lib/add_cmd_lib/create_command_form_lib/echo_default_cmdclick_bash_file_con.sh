@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo_default_cmdclick_bash_file_con(){
 	local temp_file_name="${1}"

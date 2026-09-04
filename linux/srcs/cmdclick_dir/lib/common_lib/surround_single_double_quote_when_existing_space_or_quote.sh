@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 surround_single_double_quote_when_existing_space_or_quote(){

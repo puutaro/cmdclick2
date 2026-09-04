@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 execute_ctrl_cmd_lib_path="${EXECUTE_LIB_DIR_PATH}/execute_ctrl_cmd_lib"

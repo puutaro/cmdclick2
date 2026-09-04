@@ -1,20 +1,30 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 read_resolution_from_system(){
 	local ifs_old=${IFS}
 	local IFS=$' '
-	readonly DISPLAY_RSOLUTION_LIST=(\
-		$(\
-			xrandr \
-			    | awk '{
-			        if($0 !~ /\*/) next
-			        gsub(/x/, " ", $1)
-			        print $1
-			        exit
-			    }' || e=$? \
-		) \
-	)
+	DISPLAY_RSOLUTION_LIST=""
+  if [ "${CMDCLICK_OS}" = "Darwin" ];then
+    DISPLAY_RSOLUTION_LIST=(\
+      $(\
+        get_res || e=$? \
+      ) \
+    )
+  else
+    DISPLAY_RSOLUTION_LIST=(\
+      $(\
+        xrandr \
+            | awk '{
+                if($0 !~ /\*/) next
+                gsub(/x/, " ", $1)
+                print $1
+                exit
+            }' || e=$? \
+      ) \
+    )
+	fi
+  readonly DISPLAY_RSOLUTION_LIST
 	local IFS="${ifs_old}"
 	DISPLAY_RSOLUTION_WIDTH="${DISPLAY_RSOLUTION_LIST[0]}"
 	DISPLAY_RSOLUTION_HEIGHT="${DISPLAY_RSOLUTION_LIST[1]}"

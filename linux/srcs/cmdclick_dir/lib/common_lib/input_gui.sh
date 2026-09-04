@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 . "${COMMON_LIB_DIR_PATH}/add_chdir_cmd_ini_file.sh"
 . "${INPUT_GUI_LIB_DIR_PATH}/echo_ini_file_list.sh"
@@ -66,9 +66,12 @@ input_cmd_index(){
 		"${EXECUTE_COMMAND}"
 	local hiddenOption=""
 	case "${EXEC_TERMINAL_FOCUS}_${EXEC_TERMINAL_ON}" in
-      "ON_ON")
+#      "ON_ON")
+#        hiddenOption="--hidden"
+#          ;;
+      "ON_"*)
         hiddenOption="--hidden"
-          ;;
+        ;;
   esac
 	local display_ini_file_dir_path=$(\
 		echo_display_ini_file_dir_path \

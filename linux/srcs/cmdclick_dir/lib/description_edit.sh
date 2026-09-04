@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DESCRIPTION_EDIT_LIB_DIR_PATH="${LIB_DIR_PATH}/description_edit_lib"
 . "${DESCRIPTION_EDIT_LIB_DIR_PATH}/description_edit_gui.sh"

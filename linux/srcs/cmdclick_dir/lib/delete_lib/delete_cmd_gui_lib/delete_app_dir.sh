@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 delete_app_dir(){
 	local confirm_app="${1}"

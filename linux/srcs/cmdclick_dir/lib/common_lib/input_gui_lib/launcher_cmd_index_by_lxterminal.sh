@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 
@@ -36,17 +36,21 @@ launcher_cmd_index_by_lxterminal(){
                     --header-lines=1 \
                     --id=${CMDCLICK_MACHINE_ID} \
                     --execute "w:execute(open_editor {2}/{1})" \
-                    --exec-quit "e:${EXIT_CODE}:echo -e \"{1}\t{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}'" \
+                    --exec-quit "e:${EDIT_CODE}:echo -e \"{1}\t{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}'" \
                     --exec-quit "k:${DESCRIPTION_EDIT_CODE}:echo -e \"{1}\t{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}'" \
                     --exec-quit "q:${ADD_CODE}:echo -e \"{1}\t{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}'" \
                     --exec-quit "d:${DELETE_CODE}:echo -e \"{1}\t{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}'" \
           )
           exit_status=$?
-          echo "${exit_status}" >&2
           ;;
       *)
         export IMPORT_PATH_EXEC_CMDCLICK="${0}"
         export IMPORT_PATH_INPUT_GUI="$(dirname "${IMPORT_PATH_EXEC_CMDCLICK}")/lib/common_lib/input_gui.sh"
+
+        local pasteCmd="echo {2}/{1} | tr -d '\n' | xclip -selection c -i -f"
+        if [ "${CMDCLICK_OS}" = "Darwin" ];then
+          pasteCmd="echo {2}/{1} | tr -d '\n' | pbcopy"
+        fi
         line=$(
           echo "${ini_file_list}" \
           | guigui \
@@ -66,7 +70,7 @@ launcher_cmd_index_by_lxterminal(){
             --cycle \
             --id=${CMDCLICK_MACHINE_ID} \
             --execute "w:open_editor {2}/{1}" \
-            --execute "v:echo {2}/{1} | tr -d '\n' | xclip -selection c -i -f" \
+            --execute "v:${pasteCmd}" \
             --exec-quit "e:${EDIT_CODE}:echo -e \"{1}\t{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}'" \
             --exec-quit "k:${DESCRIPTION_EDIT_CODE}:echo -e \"{1}\t{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}'" \
             --exec-quit "m:${MOVE_CODE}:echo -e \"{1}\t{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}'" \

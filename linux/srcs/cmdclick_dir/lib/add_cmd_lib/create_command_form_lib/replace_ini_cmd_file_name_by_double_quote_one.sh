@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 replace_ini_cmd_file_name_by_double_quote_one(){

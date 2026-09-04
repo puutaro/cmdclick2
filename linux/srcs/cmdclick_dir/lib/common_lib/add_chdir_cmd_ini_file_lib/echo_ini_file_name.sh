@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo_ini_file_name(){
 	local create_chdir_path="${1}"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 display_err_message_about_input_path(){
 	local LANG="ja_JP.UTF-8"

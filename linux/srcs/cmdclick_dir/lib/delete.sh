@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 DELETE_LIB_DIR_PATH="${LIB_DIR_PATH}/delete_lib"
 . "${DELETE_LIB_DIR_PATH}/delete_cmd_gui.sh"

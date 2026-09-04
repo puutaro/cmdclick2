@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 MOVE_INI_FILE_GUI_DIR_PATH="${MOVE_LIB_DIR_PATH}/move_ini_file_gui_lib"

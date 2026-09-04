@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 mv_app_dir(){
 	local chdir_signal_code="${1}"

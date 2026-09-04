@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 INSTALL_LIB_DIR_PATH="${LIB_DIR_PATH}/install_lib"

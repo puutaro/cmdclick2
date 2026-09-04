@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_signal_code_by_two_over_when_edit_execute(){

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 execute_after_command(){
 	local exec_after_command="${1}"

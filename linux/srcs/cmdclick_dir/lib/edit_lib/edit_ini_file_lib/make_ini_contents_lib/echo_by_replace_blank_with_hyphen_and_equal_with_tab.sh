@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_by_replace_blank_with_hyphen_and_equal_with_tab(){

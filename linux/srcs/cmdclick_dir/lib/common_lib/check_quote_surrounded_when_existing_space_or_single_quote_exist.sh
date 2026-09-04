@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 check_quote_surrounded_when_existing_space_or_single_quote_exist(){

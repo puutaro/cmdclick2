@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 
@@ -74,7 +74,8 @@ set_default_setting_value(){
 	esac
 	local wt_app_name="WindowsTerminal"
 	case "${PASTE_TARGET_TERMINAL_NAME}" in
-		"${wt_app_name}"|"${wt_app_name,,}") START_EXE_NAME="wt" ;;
+#		"${wt_app_name}"|"${wt_app_name,,}") START_EXE_NAME="wt" ;;
+		"${wt_app_name}") START_EXE_NAME="wt" ;;
 		*) START_EXE_NAME="${PASTE_TARGET_TERMINAL_NAME}"
 	;; esac
 	case "${CMDCLICK_EDITOR_CMD_STR:-}" in

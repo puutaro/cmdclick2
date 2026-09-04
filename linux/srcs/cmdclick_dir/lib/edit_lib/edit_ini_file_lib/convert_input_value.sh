@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 convert_input_value_lib_dir_path="${EDIT_INI_FILE_LIB_DIR_PATH}/convert_input_value_lib"
 . "${convert_input_value_lib_dir_path}/echo_edited_ini_contents.sh"

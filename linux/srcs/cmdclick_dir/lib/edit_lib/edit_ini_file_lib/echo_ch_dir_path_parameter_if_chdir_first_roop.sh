@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 
 echo_ch_dir_path_parameter_if_chdir_first_roop(){

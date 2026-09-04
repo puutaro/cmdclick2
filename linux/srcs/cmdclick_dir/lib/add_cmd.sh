@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ADD_CMD_LIB_DIR_PATH="${LIB_DIR_PATH}/add_cmd_lib"
 . "${ADD_CMD_LIB_DIR_PATH}/create_command_form.sh"
