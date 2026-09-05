@@ -4,16 +4,17 @@
 fetch_parameter(){
 	local contents="${1}"
 	local target_parameter="${2}"
-	local hat_target_parameter="^'${target_parameter}'="
+	[ -z "${contents}" ] && return 0
 	echo "${contents}" \
-	| awk '
+	|awk -v target="${target_parameter}=" \
+	' BEGIN {
+		len = length(target)
+	}
 	{
-		hat_target_parameter="^'${target_parameter}'="
-		how_gsub_success = gsub(hat_target_parameter, "", $0)
-		if(\
-			how_gsub_success \
-		) print $0
-	}'
+    if(index($0, target) != 1) next
+    print substr($0, len + 1)
+	}
+	'
 }
 
 fetch_parameter_from_pip(){
