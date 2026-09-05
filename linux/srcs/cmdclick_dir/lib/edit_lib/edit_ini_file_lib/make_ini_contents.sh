@@ -85,18 +85,11 @@ make_ini_contents(){
       "${ini_contents_set_default_value_in_parameter}" \
   )
   source_con=$(\
-      awk \
-        -v source_con="${source_con}"\
-        'BEGIN {
-          source_con_list_length = split(\
-            source_con, \
-            source_con_list, \
-            "\n"\
-          )
-          if(source_con_list_length > 2) print source_con
-        }'
+    newlines="${source_con//$'\n'/}"
+    line_count=$((${#source_con} - ${#newlines}))
+    [ "${line_count}" -ge 2 ] && printf '%s\n' "${source_con}"
     )
-  case "${source_con}" in 
+  case "${source_con}" in
     "") SIGNAL_CODE=${EXIT_CODE}
         return 
   ;; esac
