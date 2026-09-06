@@ -42,20 +42,10 @@ make_ini_contents(){
             "${SEARCH_INI_CMD_VARIABLE_SECTION_START_NAME}" \
             "${SEARCH_INI_CMD_VARIABLE_SECTION_END_NAME}" \
         )
-        source_con=$(\
-          awk \
-            -v EXEC_DISPLAY_DESCRIPTION_PATH="${EXEC_DISPLAY_DESCRIPTION_PATH}" \
-            -v EDIT_FILE_PATH="${EDIT_FILE_PATH}" \
-            -v source_con="${source_con}" \
-            -v WINDOW_TITLE="${WINDOW_TITLE}" \
-            -v WINDOW_ICON_PATH="${WINDOW_ICON_PATH}" \
-            -v EDIT_WINDOW_LOCATION="--center --width=${CENTER_SCALE_DISPLAY_WIDTH} --height=${CENTER_SCALE_DISPLAY_HEIGHT}" \
-            'BEGIN {
-              if(!source_con) exit
-              source_con=source_con"\ndisplayDescription:FBTN=bash \x27"EXEC_DISPLAY_DESCRIPTION_PATH"\x27 \x27"EDIT_FILE_PATH"\x27 \x27"WINDOW_TITLE"\x27 \x27"WINDOW_ICON_PATH"\x27 \x27"EDIT_WINDOW_LOCATION"\x27"
-              print source_con
-            }'\
-        )
+        if [ -n "${source_con}" ]; then
+          source_con="${source_con}
+displayDescription:FBTN=bash '${EXEC_DISPLAY_DESCRIPTION_PATH}' '${EDIT_FILE_PATH}' '${WINDOW_TITLE}' '${WINDOW_ICON_PATH}' '--center --width=${CENTER_SCALE_DISPLAY_WIDTH} --height=${CENTER_SCALE_DISPLAY_HEIGHT}'"
+        fi
   ;; esac
   case "${ROOP_NUM}" in 
     "1")
