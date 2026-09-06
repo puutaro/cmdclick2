@@ -28,7 +28,7 @@ check_validate_err_dialog(){
     --borders=${CMDCLICK_FORM_PADDING} \
 		--item-separator='!'\
 		--id=${CMDCLICK_MACHINE_ID} \
-		--field="\n bellow err, please ini file manual repair or delete \n (FILEPATH: "${xml_escape_validate_target_file_path}")":LBL   "" \
+		--field="\n bellow err, please ini file manual repair or delete \n (FILEPATH: "${xml_escape_validate_target_file_path}")"echo edit >&2:LBL   "" \
 		--field="${xml_escape_check_message}":LBL \
 		--button=gtk-ok:${OK_CODE} 
 	SIGNAL_CODE=${CHECK_ERR_CODE}

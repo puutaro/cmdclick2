@@ -1,4 +1,4 @@
-#!bin/bash
+#!/usr/bin/env bash
 
 
 judge_back_slash_err(){

@@ -15,7 +15,7 @@ delete_cmd(){
   set +e
   eval "${delete_confirm_form_cmd} \
     --field=\"\nDo you really want to delete bellow ini file ? \n  \${EXECUTE_FILE_NAME} \n\n\":LBL \
-    --field=\"\${delete_contents}\":LBL"
+		--field=\"\$(echo \"\$delete_contents:LBL\" | base64 -w 0)\""
 
   local confirm=$?
   set -e
