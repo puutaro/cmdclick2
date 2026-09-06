@@ -6,10 +6,14 @@ set -ue
 sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install -y yad wmctrl x11-xserver-utils xdotool xclip wget curl gnupg
 
-# install sublime (Official APT method)
+# install sublime (Official APT method
+sudo rm -f /etc/apt/sources.list.d/sublime-text.list
+sudo rm -f /etc/apt/sources.list.d/sublime-text.sources
+sudo rm -f /etc/apt/trusted.gpg.skel
 sudo install -d -m 0755 /etc/apt/keyrings
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo tee /etc/apt/keyrings/sublimehq-pub.asc > /dev/null
 echo -e "Types: deb\nURIs: https://download.sublimetext.com/\nSuites: apt/stable/\nSigned-By: /etc/apt/keyrings/sublimehq-pub.asc" | sudo tee /etc/apt/sources.list.d/sublime-text.sources
+
 sudo apt-get update -y
 sudo apt-get install sublime-text -y
 
