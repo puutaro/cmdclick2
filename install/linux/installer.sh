@@ -7,16 +7,11 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install -y yad wmctrl x11-xserver-utils xdotool xclip wget curl gnupg
 
 # install sublime (Official APT method
-# 競合する古い設定の完全削除（sources.list および sources.list.d 内）
 sudo sed -i '/sublimetext\.com/d' /etc/apt/sources.list
 sudo rm -f /etc/apt/sources.list.d/sublime-text*
 sudo rm -f /etc/apt/trusted.gpg.skel
 
 # install sublime (Official APT method)
-sudo install -d -m 0755 /etc/apt/keyrings
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo tee /etc/apt/keyrings/sublimehq-pub.asc > /dev/null
-echo -e "Types: deb\nURIs: https://download.sublimetext.com/\nSuites: apt/stable/\nSigned-By: /etc/apt/keyrings/sublimehq-pub.asc" | sudo tee /etc/apt/sources.list.d/sublime-text.sources
-
 sudo install -d -m 0755 /etc/apt/keyrings
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo tee /etc/apt/keyrings/sublimehq-pub.asc > /dev/null
 echo -e "Types: deb\nURIs: https://download.sublimetext.com/\nSuites: apt/stable/\nSigned-By: /etc/apt/keyrings/sublimehq-pub.asc" | sudo tee /etc/apt/sources.list.d/sublime-text.sources
