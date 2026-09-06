@@ -34,7 +34,7 @@ readonly versionNum=2
 readonly CLONE_DIR_PATH="${HOME}/.${APP_NAME}${versionNum}"
 
 rm -rf "${CLONE_DIR_PATH}"
-git clone https://github.com/puutaro/cmdclick.git "${CLONE_DIR_PATH}"
+git clone https://github.com/puutaro/cmdclick2.git "${CLONE_DIR_PATH}"
 
 readonly CMDCLICK_SRCS_DIR_PATH="${CLONE_DIR_PATH}/srcs"
 readonly INSTALL_DIR_PATH="${CLONE_DIR_PATH}/install/linux"
