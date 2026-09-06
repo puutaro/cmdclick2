@@ -2,10 +2,6 @@
 
 set -ue
 
-echo "type sudo password"
-sudo -v
-readonly USRLOCALBIN="/usr/local/bin"
-
 # install require pkg
 sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install -y yad wmctrl x11-xserver-utils xdotool xclip wget curl gnupg
@@ -16,6 +12,7 @@ echo "deb [signed-by=/etc/apt/trusted.gpg.skel] https://download.sublimetext.com
 sudo apt-get update -y
 sudo apt-get install sublime-text -y
 
+readonly USRLOCALBIN="/usr/local/bin"
 if [ ! -L "${USRLOCALBIN}/subl" ]; then
   sudo ln -s /opt/sublime_text/sublime_text "${USRLOCALBIN}/subl"
 fi

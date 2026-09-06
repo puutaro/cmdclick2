@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+
+echo "type sudo password"
+sudo -v
+
 readonly OS_TYPE="$(uname -s)"
 
 if [ "${OS_TYPE}" = "Darwin" ]; then

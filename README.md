@@ -4,3 +4,10 @@
 # Command Click2
 
 This project [cmdclick](https://github.com/puutaro/cmdclick) next version
+
+## install (Linux, mac)
+
+
+```sh.sh
+curl https://raw.githubusercontent.com/puutaro/cmdclick2/refs/heads/master/install.sh | bash
+```
