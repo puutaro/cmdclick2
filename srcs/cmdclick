@@ -21,14 +21,15 @@ kill_all_process(){
 
 
 first_option="${1:-}"
+real_path="$(realpath "$0")"
 case "${first_option}" in
 	"-k") 
 		kill_all_process
 		exit 0
 		;;
-	"") 
-		bash $(dirname $0)/cmdclick_dir/exec_cmdclick.sh
+	"")
+		bash $(dirname "${real_path}")/cmdclick_dir/exec_cmdclick.sh
 		exit 0
 		;;
 esac
-bash $(dirname $0)/cmdclick_dir/exec_cmdclick.sh "${first_option}"
+bash $(dirname "${real_path}")/cmdclick_dir/exec_cmdclick.sh "${first_option}"
