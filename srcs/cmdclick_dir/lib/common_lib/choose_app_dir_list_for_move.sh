@@ -12,7 +12,7 @@ choose_app_dir_list_for_move(){
 	title_message+="\n\t(current app dir: ${ini_file_list}) \n"
 	set +e
 	echo "${ini_file_con}" \
-  |  guigui \
+  |  webdi \
       list \
       --window-icon="${WINDOW_ICON_PATH}" \
       --keep \

@@ -19,7 +19,7 @@ launcher_cmd_index_by_lxterminal(){
       "${CMDCLICK_APP_DIR_PATH}")
           line=$(
               echo "${ini_file_list}" | \
-                  guigui \
+                  webdi \
                     list \
                     --title="${WINDOW_TITLE}" \
                     --keep \
@@ -54,7 +54,7 @@ launcher_cmd_index_by_lxterminal(){
         fi
         line=$(
           echo "${ini_file_list}" \
-          | guigui \
+          | webdi \
             list \
             --keep \
             --keep-excludes "esc" \

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-delete_confirm_form_cmd="guigui form \
+delete_confirm_form_cmd="webdi form \
     --title=\"\${WINDOW_TITLE}\" \
     --keep \
     --window-icon=\"\${WINDOW_ICON_PATH}\" \

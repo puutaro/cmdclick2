@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-add_cmd_base="guigui form \
+add_cmd_base="webdi form \
     --title=\"\${WINDOW_TITLE}\" \
     --keep \
     --window-icon=\"\${WINDOW_ICON_PATH}\" \

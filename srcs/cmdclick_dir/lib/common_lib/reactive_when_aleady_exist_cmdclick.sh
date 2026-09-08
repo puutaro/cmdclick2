@@ -6,7 +6,7 @@ reactive_when_aleady_exist_cmdclick(){
 		"0");; *) return ;; esac
 			ACTIVE_CHECK_VARIABLE=1
   if [ "${CMDCLICK_OS}" = "Darwin" ];then
-      guigui \
+      webdi \
         window \
         --show \
         --id "${CMDCLICK_MACHINE_ID}"
@@ -19,7 +19,7 @@ reactive_when_aleady_exist_cmdclick(){
   else
     cmdclick_proc_without_no_gui=$(
       ps aux | awk -v mid="$CMDCLICK_MACHINE_ID" '
-          ($0 ~ /guigui/) &&
+          ($0 ~ /webdi/) &&
           ($0 ~ /cmdclick/) &&
           ($0 ~ mid) &&
           ($0 !~ /--gui-mode/)

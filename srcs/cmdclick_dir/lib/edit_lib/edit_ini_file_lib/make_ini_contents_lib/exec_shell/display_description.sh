@@ -63,7 +63,7 @@ display_discription(){
 #			"${EDIT_DESCRIPTION}"\
 #	)"
 	local LANG="ja_JP.UTF-8"
-    guigui \
+    webdi \
 	    form \
 	    --title="${window_title}" \
 	    --window-icon="${window_icon}" \

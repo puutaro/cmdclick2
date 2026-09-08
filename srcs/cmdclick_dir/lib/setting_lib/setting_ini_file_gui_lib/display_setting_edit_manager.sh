@@ -6,7 +6,7 @@ display_setting_edit_manager(){
 	local setting_edit_message="\n please set value\n\n"
 	set +e
 	SETTING_VALUE=$(\
-		LANG="ja_JP.UTF-8" guigui form \
+		LANG="ja_JP.UTF-8" webdi form \
 		--title="${WINDOW_TITLE}" \
 		--keep \
 		--window-icon="${WINDOW_ICON_PATH}" \

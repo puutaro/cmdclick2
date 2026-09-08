@@ -18,7 +18,7 @@ judge_back_slash_err(){
 			;;
 	esac
 	set +e
-	guigui \
+	webdi \
 		form \
 		--title="${WINDOW_TITLE}" \
 		--keep \

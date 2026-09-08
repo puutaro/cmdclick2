@@ -8,7 +8,7 @@ add_cmd_confirm(){
             "${temp_file_path}" \
     )
 	local add_confirm="Do you really want to add shell file ?"
-	guigui form \
+	webdi form \
       --title="${WINDOW_TITLE}" \
       --keep \
       --window-icon="${WINDOW_ICON_PATH}" \

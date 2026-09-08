@@ -33,7 +33,7 @@ main_list(){
         *)
             read -r -a VALUE < <(
               echo "${ini_file_list}" | \
-              guigui --delimiter $'\t' \
+              webdi --delimiter $'\t' \
                 --window-icon "${CMDCLICK_WINDOW_ICON_PATH}" \
                 --with-nth 1 \
                 --cycle \

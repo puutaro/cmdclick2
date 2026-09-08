@@ -15,7 +15,7 @@ confirm_edit_contensts(){
 #	)
 	local save_confirm_message="\n Do you really want to save bellow ini file ? \n"
 	set +e
-	guigui \
+	webdi \
 		form \
 		--title="${WINDOW_TITLE}" \
     --keep \

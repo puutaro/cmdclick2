@@ -16,7 +16,7 @@ check_validate_err_dialog(){
 	else
 		xml_escape_validate_target_file_path="-";
 	fi
-	guigui form \
+	webdi form \
 		--title="${WINDOW_TITLE}" \
 		--window-icon="${WINDOW_ICON_PATH}" \
     --keep \

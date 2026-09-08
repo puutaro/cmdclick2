@@ -31,7 +31,7 @@ display_edit_contensts(){
   set +e
   ini_value_source=$(\
     LANG="ja_JP.UTF-8" \
-    guigui \
+    webdi \
       form \
         --title="${WINDOW_TITLE}" \
         --keep \

@@ -3,7 +3,7 @@
 
 display_continue_wait_dialog(){
 	local ctrl_cmd_pid="${1}"
-	local display_wait_dialog_cmd="guigui \
+	local display_wait_dialog_cmd="webdi \
 	form \
     --title=\"\${WINDOW_TITLE}\" \
     --keep \

@@ -7,7 +7,7 @@ display_description_edit(){
 	local through_signal=1
 	set +e
 	local desctiption_after_edit=$(\
-		guigui \
+		webdi \
 			form \
 		    --title="${WINDOW_TITLE}" \
 		    --window-icon="${WINDOW_ICON_PATH}" \
