@@ -24,8 +24,8 @@ if [ ! -L "${USRLOCALBIN}/subl" ]; then
   sudo ln -s /opt/sublime_text/sublime_text "${USRLOCALBIN}/subl"
 fi
 
-# install guigui
-curl https://raw.githubusercontent.com/puutaro/guigui/refs/heads/master/install.sh \
+# install webdi
+curl https://raw.githubusercontent.com/puutaro/webdi
 | bash
 
 # install cmdclick

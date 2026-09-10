@@ -4,8 +4,8 @@
 brew install --cask sublime-text
 brew install gnu-sed gawk grep coreutils
 
-# install guigui
-curl https://raw.githubusercontent.com/puutaro/guigui/refs/heads/master/install.sh \
+# install webdi
+curl https://raw.githubusercontent.com/puutaro/webdi/refs/heads/master/install.sh \
 | bash
 
 # install cmdclick
