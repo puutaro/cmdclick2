@@ -25,7 +25,8 @@ if [ ! -L "${USRLOCALBIN}/subl" ]; then
 fi
 
 # install webdi
-curl https://raw.githubusercontent.com/puutaro/webdi | bash
+curl https://raw.githubusercontent.com/puutaro/webdi/refs/heads/master/install.sh \
+| bash
 
 # install cmdclick
 readonly APP_NAME="cmdclick"
