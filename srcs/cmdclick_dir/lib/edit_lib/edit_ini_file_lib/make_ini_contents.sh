@@ -46,6 +46,20 @@ make_ini_contents(){
           source_con="${source_con}
 displayDescription:FBTN=bash '${EXEC_DISPLAY_DESCRIPTION_PATH}' '${EDIT_FILE_PATH}' '${WINDOW_TITLE}' '${WINDOW_ICON_PATH}' '--center --width=${CENTER_SCALE_DISPLAY_WIDTH} --height=${CENTER_SCALE_DISPLAY_HEIGHT}'"
         fi
+#        source_con=$(\
+#          awk \
+#            -v EXEC_DISPLAY_DESCRIPTION_PATH="${EXEC_DISPLAY_DESCRIPTION_PATH}" \
+#            -v EDIT_FILE_PATH="${EDIT_FILE_PATH}" \
+#            -v source_con="${source_con}" \
+#            -v WINDOW_TITLE="${WINDOW_TITLE}" \
+#            -v WINDOW_ICON_PATH="${WINDOW_ICON_PATH}" \
+#            -v EDIT_WINDOW_LOCATION="--center --width=${CENTER_SCALE_DISPLAY_WIDTH} --height=${CENTER_SCALE_DISPLAY_HEIGHT}" \
+#            'BEGIN {
+#              if(!source_con) exit
+#              source_con=source_con"\ndisplayDescription:FBTN=bash \x27"EXEC_DISPLAY_DESCRIPTION_PATH"\x27 \x27"EDIT_FILE_PATH"\x27 \x27"WINDOW_TITLE"\x27 \x27"WINDOW_ICON_PATH"\x27 \x27"EDIT_WINDOW_LOCATION"\x27"
+#              print source_con
+#            }'\
+#        )
   ;; esac
   case "${ROOP_NUM}" in 
     "1")
@@ -53,7 +67,7 @@ displayDescription:FBTN=bash '${EXEC_DISPLAY_DESCRIPTION_PATH}' '${EDIT_FILE_PAT
                 echo_by_replace_blank_with_hyphen_and_equal_with_tab \
                   "${source_con}" \
               )
-        if [ -z "${get_valiable}" ];then 
+        if [ -z "${get_valiable}" ];then
           HOW_EXIST_CMD_SECTION=${cmd_section_absence}
           ROOP_NUM=2 ; 
       fi
