@@ -16,7 +16,7 @@ input_chdir_path=$(\
 )
 SIGNAL_CODE=""
 input_path_check "${input_chdir_path}"
-case "${SIGNAL_CODE}" in 
+case "${SIGNAL_CODE}" in
 	"${CHECK_ERR_CODE}") ;;
 	*) 
 		add_chdir_cmd_ini_file "${input_chdir_path}" 

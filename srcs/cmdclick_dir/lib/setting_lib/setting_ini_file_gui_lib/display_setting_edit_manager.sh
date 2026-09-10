@@ -4,6 +4,14 @@
 display_setting_edit_manager(){
 	local setting_con="${1}"
 	local setting_edit_message="\n please set value\n\n"
+	local ifs_bk="${IFS}"
+	local IFS=$'\t\n'
+	local setting_con_list=(\
+    $(\
+      echo "${setting_con}"
+    )\
+  )
+  local IFS="${ifs_bk}"
 	set +e
 	SETTING_VALUE=$(\
 		LANG="ja_JP.UTF-8" webdi form \
@@ -21,7 +29,7 @@ display_setting_edit_manager(){
 		--font-size ${CMDCLICK_FORM_FONT_SIZE} \
 		--borders=${CMDCLICK_FORM_PADDING} \
 		--id=${CMDCLICK_MACHINE_ID} \
-		${setting_con} \
+		"${setting_con_list[@]}" \
 	)
 	SIGNAL_CODE=$?
 	set -e
