@@ -53,13 +53,20 @@ exec_dec(){
 input_cmd_index(){
 	#画面大きさ策定
 	#まず、解像度取得
+	local centerOption=""
+	case "${EXECUTE_COMMAND}" in
+		"")
+			centerOption="--center"
+			;;
+		*) ;;
+	esac
 	local ifs_old=${IFS}
 	local IFS=$','
 	local x_posi_y_posi_scale_width_scale_height_list=(\
 		$(echo_x_posi_y_posi_scale_width_scale_height)\
 	)
-#	local x_position="${x_posi_y_posi_scale_width_scale_height_list[0]}"
-#	local y_position="${x_posi_y_posi_scale_width_scale_height_list[1]}"
+	local x_position="${x_posi_y_posi_scale_width_scale_height_list[0]}"
+	local y_position="${x_posi_y_posi_scale_width_scale_height_list[1]}"
 	local scale_display_width="${x_posi_y_posi_scale_width_scale_height_list[2]}"
 	local scale_display_height="${x_posi_y_posi_scale_width_scale_height_list[3]}"
 	terminal_forcus_set \
@@ -86,6 +93,9 @@ input_cmd_index(){
 	launcher_cmd_index_by_lxterminal \
 		"${INI_FILE_DIR_PATH}" \
 		"${ini_file_list}" \
+		"${centerOption}" \
+		"${x_position}" \
+		"${y_position}" \
 		"${scale_display_width}" \
 		"${scale_display_height}" \
 		"${hiddenOption}"
