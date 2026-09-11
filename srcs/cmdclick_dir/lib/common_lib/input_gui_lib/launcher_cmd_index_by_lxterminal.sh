@@ -6,11 +6,9 @@ launcher_cmd_index_by_lxterminal(){
 	local LANG="ja_JP.UTF-8"
 	local ini_file_dir_path=${1}
 	local ini_file_list=${2}
-	local x_position=${3}
-	local y_position=${4}
-	local scale_display_width=${5}
-	local scale_display_height="${6}"
-	local hiddenOption="${7}"
+	local scale_display_width=${3}
+	local scale_display_height="${4}"
+	local hiddenOption="${5}"
 	local main_list_sh_path=${COMMON_LIB_DIR_PATH}/input_gui_lib/launcher_cmd_index_by_lxterminal_lib/main_list.sh
 #	[ -f "${HOME}/.fzf.bash" ] && . ${HOME}/.fzf.bash
   local line=""
@@ -28,8 +26,7 @@ launcher_cmd_index_by_lxterminal(){
                     --with-nth 1 \
                     ${hiddenOption} \
                     --cycle \
-                    --x ${x_position} \
-                    --y ${y_position} \
+                    --center \
                     --width "${scale_display_width}" \
                     --height "${scale_display_height}" \
                     --font-size ${CMDCLICK_LIST_FONT_SIZE} \
@@ -64,8 +61,7 @@ launcher_cmd_index_by_lxterminal(){
             --header-lines=1 \
             --with-nth 1 \
             ${hiddenOption} \
-            --x ${x_position} \
-            --y ${y_position} \
+            --center \
             --width "${scale_display_width}" \
             --height "${scale_display_height}" \
             --font-size ${CMDCLICK_LIST_FONT_SIZE} \
