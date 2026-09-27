@@ -21,6 +21,7 @@ display_setting_edit_manager(){
 		--font-size ${CMDCLICK_FORM_FONT_SIZE} \
 		--borders=${CMDCLICK_FORM_PADDING} \
 		--id=${CMDCLICK_MACHINE_ID} \
+    --design-json "${CMDCLICK_LAYOUT_JSON}" \
 		${setting_con} \
 	)
 	SIGNAL_CODE=$?

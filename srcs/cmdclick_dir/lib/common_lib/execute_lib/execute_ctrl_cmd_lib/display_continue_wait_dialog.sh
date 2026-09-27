@@ -15,6 +15,7 @@ display_continue_wait_dialog(){
     --borders=\${CMDCLICK_FORM_PADDING} \
     \${WAIT_WINDOW_LOCATION} \
     --id=\${CMDCLICK_MACHINE_ID} \
+    --design-json \"\${CMDCLICK_LAYOUT_JSON}\" \
     --field=\"\n \${wait_message} \n\n\":LBL \
     --no-buttons &"
 

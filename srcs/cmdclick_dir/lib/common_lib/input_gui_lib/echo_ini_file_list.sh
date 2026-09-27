@@ -5,7 +5,7 @@ echo_ini_file_list(){
 	local display_ini_file_dir_path="${2}"
 
 	# [ヘッダー] の出力
-	echo "[${display_ini_file_dir_path}]"
+	echo "${display_ini_file_dir_path}"
 
 	local file_name
 	local display_count=0

@@ -19,6 +19,7 @@ display_description_edit(){
 		    --height=${CENTER_SCALE_DISPLAY_HEIGHT} \
 		    --width=${CENTER_SCALE_DISPLAY_WIDTH} \
 		    --id="description${CMDCLICK_MACHINE_ID}" \
+        --design-json "${CMDCLICK_LAYOUT_JSON}" \
 		    --field="${guid_sentence}":TXT "${desctiption_before_edit}" \
 		    --quit-gui \
 		|| echo ${through_signal}

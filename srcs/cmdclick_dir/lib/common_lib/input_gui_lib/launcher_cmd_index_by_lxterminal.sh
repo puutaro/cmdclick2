@@ -38,6 +38,7 @@ launcher_cmd_index_by_lxterminal(){
                     --borders=${CMDCLICK_LIST_PADDING} \
                     --header-lines=1 \
                     --id=${CMDCLICK_MACHINE_ID} \
+                    --design-json "${CMDCLICK_LAYOUT_JSON}" \
                     --execute "w:execute(open_editor {2}/{1})" \
                     --exec-quit "e:${EDIT_CODE}:echo -e \"{1}\t{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}'" \
                     --exec-quit "k:${DESCRIPTION_EDIT_CODE}:echo -e \"{1}\t{2}\" > '${CMDCLICK_VALUE_SIGNAL_FILE_PATH}'" \
@@ -88,6 +89,7 @@ launcher_cmd_index_by_lxterminal(){
             --reload "s:export IMPORT_CMDCLICK_VAL=1 && . ${IMPORT_PATH_EXEC_CMDCLICK} && . ${IMPORT_PATH_INPUT_GUI} && exec_inc && reload_cmd" \
             --reload "a:export IMPORT_CMDCLICK_VAL=1 && . ${IMPORT_PATH_EXEC_CMDCLICK} && . ${IMPORT_PATH_INPUT_GUI} && exec_dec && reload_cmd" \
             --reload "r:export IMPORT_CMDCLICK_VAL=1 && . ${IMPORT_PATH_EXEC_CMDCLICK} && . ${IMPORT_PATH_INPUT_GUI} && reload_cmd" \
+            --design-json "webdi:///layout_json/animal/child_dog.json" \
         )
         exit_status=$?
       ;;

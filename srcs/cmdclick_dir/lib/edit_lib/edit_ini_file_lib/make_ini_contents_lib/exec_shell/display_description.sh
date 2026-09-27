@@ -73,6 +73,7 @@ display_discription(){
 	    --selectable-labels \
 	    ${edit_window_location} \
 	    --id=${CMDCLICK_MACHINE_ID} \
+      --design-json "${CMDCLICK_LAYOUT_JSON}" \
 	    --button  gtk-cancel:${EXIT_CODE} \
 	    --scroll
 }

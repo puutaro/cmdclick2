@@ -29,6 +29,7 @@ confirm_edit_contensts(){
     --font-size ${CMDCLICK_FORM_FONT_SIZE} \
     --borders=${CMDCLICK_FORM_PADDING} \
     --id=${CMDCLICK_MACHINE_ID} \
+    --design-json "${CMDCLICK_LAYOUT_JSON}" \
 		--field="base64://$(echo "$save_confirm_message:LBL" | base64 -w 0)" \
 		--field="base64://$(echo "$display_ini_contents:LBL" | base64 -w 0)"
 	CONFIRM=$?

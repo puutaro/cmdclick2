@@ -20,6 +20,7 @@ add_cmd_confirm(){
       --height=${CENTER_SCALE_DISPLAY_HEIGHT} \
       --width=${CENTER_SCALE_DISPLAY_WIDTH} \
       --id=${CMDCLICK_MACHINE_ID} \
+      --design-json "${CMDCLICK_LAYOUT_JSON}" \
       --field="\n ${add_confirm} ? \n  ${converted_xml_escape_sequence} \n\n":LBL ""
 	local confirm=$?
 	return "${confirm}"

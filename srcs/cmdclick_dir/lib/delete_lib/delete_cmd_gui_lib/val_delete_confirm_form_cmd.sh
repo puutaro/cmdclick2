@@ -12,4 +12,5 @@ delete_confirm_form_cmd="webdi form \
     --borders=\${CMDCLICK_FORM_PADDING} \
     --height=\${scale_display_height} \
     --id=\${CMDCLICK_MACHINE_ID} \
+    --design-json \"\${CMDCLICK_LAYOUT_JSON}\" \
     --width=\${scale_display_width}"

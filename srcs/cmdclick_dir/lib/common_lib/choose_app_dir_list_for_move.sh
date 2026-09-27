@@ -23,6 +23,7 @@ choose_app_dir_list_for_move(){
       --center \
       --font-size ${CMDCLICK_LIST_FONT_SIZE} \
       --borders=${CMDCLICK_LIST_PADDING} \
-      --id=${CMDCLICK_MACHINE_ID}
+      --id=${CMDCLICK_MACHINE_ID} \
+      --design-json "${CMDCLICK_LAYOUT_JSON}"
 	set -e
 }

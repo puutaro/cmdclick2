@@ -13,4 +13,5 @@ add_cmd_base="webdi form \
     --height=\${CENTER_SCALE_DISPLAY_HEIGHT} \
     --width=\${CENTER_SCALE_DISPLAY_WIDTH} \
     --id=\${CMDCLICK_MACHINE_ID} \
+    --design-json \"\${CMDCLICK_LAYOUT_JSON}\" \
     "

@@ -30,6 +30,7 @@ judge_back_slash_err(){
     --height=${CENTER_SCALE_DISPLAY_HEIGHT} \
     --width=${CENTER_SCALE_DISPLAY_WIDTH} \
     --id=${CMDCLICK_MACHINE_ID} \
+    --design-json "${CMDCLICK_LAYOUT_JSON}" \
 		--button  gtk-ok:${OK_CODE}
 	set -e
 	ROOP_NUM=2

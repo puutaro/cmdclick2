@@ -45,6 +45,7 @@ display_edit_contensts(){
         --borders=${CMDCLICK_FORM_PADDING} \
         --id=${CMDCLICK_MACHINE_ID} \
         --sub-id=${EDIT_FILE_PATH} \
+        --design-json "webdi:///layout_json/animal/child_dog.json" \
         ${EDIT_WINDOW_LOCATION} \
         ${button_list[@]} \
         ${VARIABLE_CONTENSTS_FIELD_LIST[@]} \

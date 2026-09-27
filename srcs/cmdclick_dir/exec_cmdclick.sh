@@ -11,6 +11,7 @@ if [ "${CMDCLICK_OS}" = "Darwin" ];then
   export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
   export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
+readonly CMDCLICK_LAYOUT_JSON="webdi:///layout_json/animal/child_dog.json"
 readonly ITEM_THREAD="ITEM_THREAD_CM2GUI"
 readonly APP_MODE_FILE_PATH="${1:-}"
 readonly CMDCLICK_WINDOW_TITLE="Command Click"
