@@ -19,7 +19,7 @@ input_path_check "${input_chdir_path}"
 case "${SIGNAL_CODE}" in 
 	"${CHECK_ERR_CODE}") ;;
 	*) 
-		add_chdir_cmd_ini_file "${input_chdir_path}" 
+		add_chdir_cmd_ini_file "${input_chdir_path}"
 		;;
 esac
 unset -v ADD_CHDIR_CMD_LIB_DIR_PATH

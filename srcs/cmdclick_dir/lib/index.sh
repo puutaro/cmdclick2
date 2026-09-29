@@ -19,7 +19,7 @@ INI_FILE_DIR_PATH=$(\
 	| sed -n ''${first_index_num_in_app_dir_list}'p'\
 )
 unset -v first_index_num_in_app_dir_list
-if [ ! -e "${INI_FILE_DIR_PATH}" ];then 
+if [ ! -e "${INI_FILE_DIR_PATH}" ];then
 	mkdir -p "${INI_FILE_DIR_PATH}";
 fi
 #index立ち上げ
